@@ -3,11 +3,14 @@ from flask_cors import CORS
 from google import genai
 from google.genai import types # type: ignore
 import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 CORS(app)
 
-client = genai.Client(api_key='AIzaSyAHq2x31inehTL4HRk4L280WWpMyhmFFbw')
+load_dotenv()
+api_key = os.getenv("GEMINI_API_KEY")
+client = genai.Client(api_key=api_key)
 
 crop_system_prompt = """
 You are AgriBot, a helpful AI assistant that answers only agriculture-related questions. Your primary tasks include:
