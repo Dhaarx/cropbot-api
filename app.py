@@ -53,7 +53,7 @@ def favicon():
 
 def crop_query_gemini(user_input):
     response = client.models.generate_content(
-        model='gemini-2.5-flash',
+        model='gemini-2.5-flash-lite',
         contents=user_input,
         config=types.GenerateContentConfig(
             system_instruction=crop_system_prompt,
@@ -69,7 +69,7 @@ def crop_query_gemini(user_input):
 
 def livestock_query_gemini(user_input):
     response = client.models.generate_content(
-        model='gemini-2.5-flash',
+        model='gemini-2.5-flash-lite',
         contents=user_input,
         config=types.GenerateContentConfig(
             system_instruction=livestock_system_prompt,
